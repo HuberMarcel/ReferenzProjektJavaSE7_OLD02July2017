@@ -87,6 +87,11 @@ public class AdresseKonstruktorDemo {
         adresse01.removeTelefonnummer("06501444");
         System.out.println("Aktueller Stand adresse01\n" + adresse01);
         System.out.println("");
+        System.out.println("Wir ändern den Namen der Strasse "
+                + adresse01.getStrasse()+ " zu Hornstraße");
+        adresse01.setStrasse("Hornstraße");
+        System.out.println("Aktueller Stand adresse01\n" + adresse01);
+        System.out.println("");
         System.out.println("");
         System.out.println("");
     }
