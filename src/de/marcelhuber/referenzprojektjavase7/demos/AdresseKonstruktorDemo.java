@@ -1,13 +1,14 @@
 package de.marcelhuber.referenzprojektjavase7.demos;
 
 import de.marcelhuber.referenzprojektjavase7.model.Adresse;
+import de.marcelhuber.systemtools.Pause;
 import de.marcelhuber.systemtools.PressEnter;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author Marcel
+ * @author Marcel Huber
  */
 public class AdresseKonstruktorDemo {
 
@@ -88,8 +89,38 @@ public class AdresseKonstruktorDemo {
         System.out.println("Aktueller Stand adresse01\n" + adresse01);
         System.out.println("");
         System.out.println("Wir ändern den Namen der Strasse "
-                + adresse01.getStrasse()+ " zu Hornstraße");
+                + adresse01.getStrasse() + " zu Hornstraße");
         adresse01.setStrasse("Hornstraße");
+        System.out.println("Aktueller Stand adresse01\n" + adresse01);
+        System.out.println("");
+        System.out.println("Damit man nicht von der Adresse losgelöst die "
+                + "zugehörigen Emailadressen bearbeiten kann,\n"
+                + "bekommt man sie mit dem getter als unmodifiableList:");
+        System.out.println("");
+        System.out.println("Verboten: ");
+        System.out.println("List<String> emailadressenVonAdress01 = adresse01.getEmailadressen();\n"
+                + "emailadressenVonAdress01.add(\"Hugo\");\n");
+        List<String> emailadressenVonAdress01 = adresse01.getEmailadressen();
+        try {
+            emailadressenVonAdress01.add("Hugo");
+        } catch (UnsupportedOperationException ex) {
+            long waitingTime = System.currentTimeMillis() + 2000;
+            while (true) {
+                System.out.print(". ");
+                Pause.breakInMillis(500);
+                if (System.currentTimeMillis() > waitingTime) {
+                    break;
+                }
+            }
+            System.out.println("");
+            System.err.println("add ist auf einer \"unmodifiabel List\" verboten, Exception: "
+                    + ex);
+            System.out.println("");
+            Pause.breakInMillis(200);
+        }
+        System.out.println("Erlaubt:");
+        System.out.println("adresse01.addEmailadresse(\"Hugo\");\n");
+        adresse01.addEmailadresse("Hugo");
         System.out.println("Aktueller Stand adresse01\n" + adresse01);
         System.out.println("");
         System.out.println("");

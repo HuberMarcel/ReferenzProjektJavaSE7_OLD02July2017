@@ -1,7 +1,9 @@
 package de.marcelhuber.referenzprojektjavase7.model;
 
+import com.sun.javafx.UnmodifiableArrayList;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -172,11 +174,11 @@ public class Adresse {
     }
 
     /**
-     * @return the telefonnummern
+     * @return the telefonnummern - unmodifiable
      */
     public List<String> getTelefonnummern() {
         // wichtig: UnmodifiableArrayList zurückgeben!
-        return telefonnummern;
+        return Collections.unmodifiableList(telefonnummern);
     }
 
     /**
@@ -187,11 +189,11 @@ public class Adresse {
     }
 
     /**
-     * @return the emailadressen
+     * @return the emailadressen - unmodifiable
      */
     public List<String> getEmailadressen() {
         // wichtig: UnmodifiableArrayList zurückgeben!
-        return emailadressen;
+        return Collections.unmodifiableList(emailadressen);
     }
 
     /**
