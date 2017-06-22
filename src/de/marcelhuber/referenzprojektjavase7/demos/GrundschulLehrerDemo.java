@@ -11,17 +11,18 @@ import java.util.Date;
  * @author Marcel Huber
  */
 public class GrundschulLehrerDemo {
+
     public static void main(String[] args) {
         new GrundschulLehrerDemo().go();
     }
-    
+
     private void go() {
- GrundschulLehrer marcel = new GrundschulLehrer();
+        GrundschulLehrer marcel = new GrundschulLehrer();
         marcel.getMenschDaten().setVorname("Marcel");
         System.out.println(marcel);
         marcel.getMenschDaten().setFamilienname("Huber");
         marcel.getMenschDaten().setGeburtsname("Huber");
-        marcel.setUnterrichtsFaecher(new String[]{"Mathematik", "Informatik", "Lifehacks"});
+        marcel.addUnterrichtsFaecher(new String[]{"Mathematik", "Informatik", "Lifehacks"});
         System.out.println(marcel);
         //
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
@@ -64,11 +65,39 @@ public class GrundschulLehrerDemo {
         GrundschulLehrer oma = new GrundschulLehrer();
         oma.setMenschDaten(omasDaten);
         System.out.println("Oma als Grundschullehrerin:\n" + oma);
-        oma.setUnterrichtsFaecher(new String[]{"Häkeln", "Lifehacks"});
+        oma.addUnterrichtsFaecher(new String[]{"Häkeln", "Lifehacks"});
         oma.getMenschDaten().setVorname("Kath.");
         System.out.println("Oma als Grundschullehrerin und ihre Fächer:\n" + oma);
         System.out.println("Omas Daten jetzt als MenschDaten mit geändertem Separationszeichen:");
         omasDaten.setSeparationsZeichen("..... ");
-        System.out.println(omasDaten);        
+        System.out.println(omasDaten);
+        MenschRealDaten opasDaten = new MenschRealDaten.Builder()
+                .zweitname("Frans")
+                .vorname("Nikolaus")
+                .build();
+        System.out.println("Opas Daten: ");
+        System.out.println(opasDaten);
+        GrundschulLehrer opa = new GrundschulLehrer(opasDaten);
+        opa.getMenschDaten().setZweitname("Franz");
+        opa.getMenschDaten().setFamilienname("Huber");
+        opa.addUnterrichtsFaecher(new String[]{"Mechanik", "Handwerk"});
+        opa.addUnterrichtsFach("Fernsehen");
+        opa.removeUnterrichtsFaecher(new String[]{"Fernsehen", "Handwerk"});
+        System.out.println("Opa als Grundschullehrer mit seinen Fächern: ");
+        System.out.println(opa);
+        opa.changeUnterrichtsFaecher("Mechanik", "Mechatronik");
+        System.out.println(opa);
+        opasDaten = new MenschRealDaten.Builder().build();
+        opa = new GrundschulLehrer(opasDaten);
+        opa.addUnterrichtsFach("Abstraktes Denken");
+        System.out.println(opa);
+        System.out.println("Opas Unterrichtsfächer: "
+                + opa.getUnterrichtsFaecher());
+        System.out.println("Jetzt leeren wir seine Liste von Unterrichtsfächern...");
+        opa.clearAllUnterrichtsFaecher();
+        System.out.println("Opas Unterrichtsfächer: "
+                + opa.getUnterrichtsFaecher());
+        System.out.println(opa);
+        System.out.println("Ende".toUpperCase());
     }
 }

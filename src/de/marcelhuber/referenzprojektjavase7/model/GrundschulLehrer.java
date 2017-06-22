@@ -1,8 +1,12 @@
 package de.marcelhuber.referenzprojektjavase7.model;
 
 import de.marcelhuber.systemtools.Marker;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -24,7 +28,7 @@ public class GrundschulLehrer {
         this.menschDaten = menschDaten;
     }
 
-    private String[] unterrichtsFaecher;
+    private List<String> unterrichtsFaecher;
     private MenschRealDaten menschDaten;
 
     public static void main(String[] args) {
@@ -97,12 +101,61 @@ public class GrundschulLehrer {
         this.separationsZeichen = separationsZeichen;
     }
 
-    public String[] getUnterrichtsFaecher() {
-        return unterrichtsFaecher;
+    public List<String> getUnterrichtsFaecher() {
+        ifUnterrichtsFaecherIsNullInitializeNewList();
+        return Collections.unmodifiableList(unterrichtsFaecher);
     }
 
-    public void setUnterrichtsFaecher(String[] unterrichtsFaecher) {
-        this.unterrichtsFaecher = unterrichtsFaecher;
+    public void changeUnterrichtsFaecher(String unterrichtsFachOld,
+            String unterrichtsFachNew) {
+        removeUnterrichtsFach(unterrichtsFachOld);
+        addUnterrichtsFach(unterrichtsFachNew);
+    }
+
+    public void clearAllUnterrichtsFaecher() {
+        if (ifUnterrichtsFaecherIsNullInitializeNewList()) {
+            return;
+        }
+        unterrichtsFaecher.clear();
+    }
+
+    public void addUnterrichtsFach(String unterrichtsFach) {
+        ifUnterrichtsFaecherIsNullInitializeNewList();
+        addUnterrichtsFaecher(new String[]{unterrichtsFach});
+    }
+
+    public void addUnterrichtsFaecher(String[] unterrichtsFaecher) {
+        ifUnterrichtsFaecherIsNullInitializeNewList();
+        // der boolsche Rückgabewert ist beim adden uninteressant
+        if (unterrichtsFaecher != null && unterrichtsFaecher.length > 0) {
+            for (String fach : unterrichtsFaecher) {
+                this.unterrichtsFaecher.add(fach);
+            }
+        }
+    }
+
+    public void removeUnterrichtsFach(String unterrichtsFach) {
+        if (ifUnterrichtsFaecherIsNullInitializeNewList() == true) {
+            return;
+        }
+        unterrichtsFaecher.remove(unterrichtsFach);
+    }
+
+    public void removeUnterrichtsFaecher(String[] unterrichtsFaecher) {
+        if (ifUnterrichtsFaecherIsNullInitializeNewList() == true) {
+            // es wäre sinnlos, auf null die remove-Methode
+            // aufzurufen bzw. spätestens jetzt auf ein leeres Listenobjekt
+            return;
+        }
+        if (unterrichtsFaecher != null && unterrichtsFaecher.length > 0) {
+            for (String fach : unterrichtsFaecher) {
+                if (this.unterrichtsFaecher.size() == 0) {
+                    // sobald die unterrichtsFaecher-Liste leer ist, können wir aufhören
+                    return;
+                }
+                this.unterrichtsFaecher.remove(fach);
+            }
+        }
     }
 
     public MenschRealDaten getMenschDaten() {
@@ -113,13 +166,26 @@ public class GrundschulLehrer {
         this.menschDaten = menschDaten;
     }
 
+    // liefert false zurück, falls unterrichtsFaecher != null war!!
+    // liefert true zurück, falls unterrichtsFaecher == null war!!
+    private boolean ifUnterrichtsFaecherIsNullInitializeNewList() {
+        boolean isUnterrichtsFaecherNull = false;
+        if (this.unterrichtsFaecher == null) {
+            isUnterrichtsFaecherNull = true;
+            this.unterrichtsFaecher = new ArrayList<>();
+        }
+        return isUnterrichtsFaecherNull;
+    }
+
     public String toString() {
         String returnString = menschDaten.toString()
                 + "\n"
                 + separationsZeichen
-                + "\n"
-                + "Unterrichtsfächer: " + Arrays.toString(unterrichtsFaecher)
-                + "";
+                + "\n";
+        if (unterrichtsFaecher != null && unterrichtsFaecher.size() > 0) {
+            returnString += "Unterrichtsfächer: " + unterrichtsFaecher;
+        }
+        returnString += "";
         return returnString;
     }
 
@@ -141,10 +207,10 @@ public class GrundschulLehrer {
     static public void nutzeMarkiereNeuenAbschnitt() {
         if (dummy == null) {
             dummy = new GrundschulLehrer();
-            dummy.getMenschDaten().setFamilienname("GS Hilfsobjekt Nr.: " 
+            dummy.getMenschDaten().setFamilienname("GS Hilfsobjekt Nr.: "
                     + (++counter));
         }
-        System.out.println("Ich bin ein Dummy-Objekt: "+ dummy.getMenschDaten().getFamilienname());
+        System.out.println("Ich bin ein Dummy-Objekt: " + dummy.getMenschDaten().getFamilienname());
         dummy.markiereNeuenAbschnitt();
     }
 }
