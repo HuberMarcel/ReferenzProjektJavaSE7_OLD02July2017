@@ -1,6 +1,6 @@
 package de.marcelhuber.referenzprojektjavase7.model;
 
-import de.marcelhuber.referenzprojektjavase7.controller.GrundschulLehrerCannotBeInitiatedException;
+import de.marcelhuber.referenzprojektjavase7.exceptions.GrundschulLehrerCannotBeInitiatedException;
 import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;
 import de.marcelhuber.systemtools.Marker;
 import java.util.ArrayList;
@@ -26,13 +26,6 @@ public class GrundschulLehrer extends MenschReal {
 
     private GrundschulLehrer(MenschReal mr) {
         super(mr.getMenschDaten());
-    }
-
-    public static void main(String[] args) {
-//        new GrundschulLehrer().go();
-    }
-
-    private void go() {
     }
 
     public String getSeparationsZeichen() {
@@ -120,7 +113,7 @@ public class GrundschulLehrer extends MenschReal {
 //            mr = new MenschReal(mdk);
 //            mr.getMenschDaten().setFamilienname("Dummy-Object".toUpperCase());
 //            return new GrundschulLehrer(mr);
-              throw new GrundschulLehrerCannotBeInitiatedException();
+            throw new GrundschulLehrerCannotBeInitiatedException();
         }
         if (mr.getMenschDaten() == null) {
             mr.setMenschDaten(mdk);

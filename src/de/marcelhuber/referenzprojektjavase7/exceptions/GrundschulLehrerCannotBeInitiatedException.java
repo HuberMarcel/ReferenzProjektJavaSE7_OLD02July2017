@@ -1,4 +1,4 @@
-package de.marcelhuber.referenzprojektjavase7.controller;
+package de.marcelhuber.referenzprojektjavase7.exceptions;
 
 /**
  *
