@@ -21,15 +21,15 @@ public class GrundschulLehrer {
     }
 
     public GrundschulLehrer() {
-        this(new MenschRealDaten.Builder().build());
+        this(new MenschReal.Builder().build());
     }
 
-    public GrundschulLehrer(MenschRealDaten menschDaten) {
+    public GrundschulLehrer(MenschReal menschDaten) {
         this.menschDaten = menschDaten;
     }
 
     private List<String> unterrichtsFaecher;
-    private MenschRealDaten menschDaten;
+    private MenschReal menschDaten;
 
     public static void main(String[] args) {
         new GrundschulLehrer().go();
@@ -158,11 +158,11 @@ public class GrundschulLehrer {
         }
     }
 
-    public MenschRealDaten getMenschDaten() {
+    public MenschReal getMenschDaten() {
         return menschDaten;
     }
 
-    public void setMenschDaten(MenschRealDaten menschDaten) {
+    public void setMenschDaten(MenschReal menschDaten) {
         this.menschDaten = menschDaten;
     }
 

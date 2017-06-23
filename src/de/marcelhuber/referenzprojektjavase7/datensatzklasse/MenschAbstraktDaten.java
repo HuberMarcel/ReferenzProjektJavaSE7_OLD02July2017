@@ -1,5 +1,6 @@
-package de.marcelhuber.referenzprojektjavase7.model;
+package de.marcelhuber.referenzprojektjavase7.datensatzklasse;
 
+import de.marcelhuber.referenzprojektjavase7.model.Adresse;
 import java.util.Date;
 
 /**

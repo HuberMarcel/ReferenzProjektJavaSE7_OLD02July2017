@@ -1,12 +1,15 @@
 package de.marcelhuber.referenzprojektjavase7.model;
 
+import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschAbstraktDaten;
+import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschAbstraktDaten;
+import de.marcelhuber.referenzprojektjavase7.model.Adresse;
 import java.util.Date;
 
 /**
  *
  * @author Marcel Huber
  */
-public class MenschRealDaten extends MenschAbstraktDaten {
+public class MenschReal extends MenschAbstraktDaten {
 
     // Initialsierungsblock
     private String separationsZeichen;
@@ -64,14 +67,14 @@ public class MenschRealDaten extends MenschAbstraktDaten {
             return this;
         }
 
-        public MenschRealDaten build() {
-            return new MenschRealDaten(this);
+        public MenschReal build() {
+            return new MenschReal(this);
         }
 
     }
 
     // der Konstruktor für den Builder!
-    private MenschRealDaten(Builder build) {
+    private MenschReal(Builder build) {
         this.setGeburtsname(build.geburtsname);
         this.setFamilienname(build.familienname);
         this.setVorname(build.vorname);
@@ -82,7 +85,7 @@ public class MenschRealDaten extends MenschAbstraktDaten {
 
     // alternativ kann man auch einen vollständigen Konstruktor verwenden
     // nur mit allen Pflichtfeldern
-    public MenschRealDaten(String geburtsname, String familienname, String vorname,
+    public MenschReal(String geburtsname, String familienname, String vorname,
             Date geburtsDatum, Adresse adresse) {
         this.setGeburtsname(geburtsname);
         this.setFamilienname(familienname);
@@ -91,14 +94,14 @@ public class MenschRealDaten extends MenschAbstraktDaten {
         this.setAdresse(adresse);
     }
 
-    public MenschRealDaten(String geburtsname, String familienname, String vorname, String zweitname,
+    public MenschReal(String geburtsname, String familienname, String vorname, String zweitname,
             Date geburtsDatum, Adresse adresse) {
         this(geburtsname, familienname, vorname, geburtsDatum, adresse);
         this.setZweitname(zweitname);
     }
 
     // Standardkonstruktor
-    public MenschRealDaten() {
+    public MenschReal() {
     }
 
     public String toString() {

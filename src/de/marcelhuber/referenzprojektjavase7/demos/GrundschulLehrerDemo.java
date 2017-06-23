@@ -2,7 +2,7 @@ package de.marcelhuber.referenzprojektjavase7.demos;
 
 import de.marcelhuber.referenzprojektjavase7.model.Adresse;
 import de.marcelhuber.referenzprojektjavase7.model.GrundschulLehrer;
-import de.marcelhuber.referenzprojektjavase7.model.MenschRealDaten;
+import de.marcelhuber.referenzprojektjavase7.model.MenschReal;
 import de.marcelhuber.systemtools.Marker;
 import java.util.Date;
 
@@ -27,7 +27,7 @@ public class GrundschulLehrerDemo {
         //
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
         System.out.println("Neuer Mensch!!".toUpperCase());
-        MenschRealDaten saschasDaten = new MenschRealDaten("Huber", "Huber", "Sascha",
+        MenschReal saschasDaten = new MenschReal("Huber", "Huber", "Sascha",
                 new Date(), new Adresse("Strasse XY", 0, "54XXX", "TR"));
         System.out.println("Mensch Sascha:           " + saschasDaten);
         Marker.marker();
@@ -38,28 +38,28 @@ public class GrundschulLehrerDemo {
         System.out.println("Grundschullehrer Sascha: " + sascha);
         //
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten marcelsDaten = marcel.getMenschDaten();
+        MenschReal marcelsDaten = marcel.getMenschDaten();
         marcelsDaten.setSeparationsZeichen("||| ---");
         System.out.println(marcel);
         marcel.setSeparationsZeichen("XXXX");
         System.out.println(marcel);
         //
         System.out.println("");
-        MenschRealDaten pascalsDaten = new MenschRealDaten("Huber", "Huber", "Pascal", new Date(), null);
+        MenschReal pascalsDaten = new MenschReal("Huber", "Huber", "Pascal", new Date(), null);
         System.out.println(pascalsDaten);
         // 
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten mamasDaten = new MenschRealDaten("Huber", "Herrig", "G.", "S.", new Date(), null);
+        MenschReal mamasDaten = new MenschReal("Huber", "Herrig", "G.", "S.", new Date(), null);
         System.out.println(mamasDaten);
         //
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten papasDaten = new MenschRealDaten();
+        MenschReal papasDaten = new MenschReal();
         papasDaten.setFamilienname("Huber");
         papasDaten.setZweitname("Matthias");
         System.out.println(papasDaten);
         // 
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten omasDaten = new MenschRealDaten.Builder()
+        MenschReal omasDaten = new MenschReal.Builder()
                 .geburtsname("HabeIchGeradeVergessen").build();
         System.out.println(omasDaten);
         GrundschulLehrer oma = new GrundschulLehrer();
@@ -71,7 +71,7 @@ public class GrundschulLehrerDemo {
         System.out.println("Omas Daten jetzt als MenschDaten mit geändertem Separationszeichen:");
         omasDaten.setSeparationsZeichen("..... ");
         System.out.println(omasDaten);
-        MenschRealDaten opasDaten = new MenschRealDaten.Builder()
+        MenschReal opasDaten = new MenschReal.Builder()
                 .zweitname("Frans")
                 .vorname("Nikolaus")
                 .build();
@@ -87,7 +87,7 @@ public class GrundschulLehrerDemo {
         System.out.println(opa);
         opa.changeUnterrichtsFaecher("Mechanik", "Mechatronik");
         System.out.println(opa);
-        opasDaten = new MenschRealDaten.Builder().build();
+        opasDaten = new MenschReal.Builder().build();
         opa = new GrundschulLehrer(opasDaten);
         opa.addUnterrichtsFach("Abstraktes Denken");
         System.out.println(opa);
