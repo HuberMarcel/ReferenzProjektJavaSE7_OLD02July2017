@@ -1,16 +1,12 @@
 package de.marcelhuber.referenzprojektjavase7.datensatzklasse;
 
-import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschAbstraktDaten;
-import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschAbstraktDaten;
-import de.marcelhuber.referenzprojektjavase7.model.Adresse;
-import de.marcelhuber.referenzprojektjavase7.model.Adresse;
 import java.util.Date;
 
 /**
  *
  * @author Marcel Huber
  */
-public class MenschRealDaten extends MenschAbstraktDaten {
+public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable {
 
     // Initialsierungsblock
     private String separationsZeichen;
@@ -30,13 +26,12 @@ public class MenschRealDaten extends MenschAbstraktDaten {
     // diese Klasse dient dazu, einen MenschBuilder zu implementieren
     static public class Builder {
 
-        // Wir benötigen die gleichen Attribute wie in der MenschAbstraktDaten-Klasse
+        // Wir benötigen die gleichen Attribute wie in der MenschDatenAbstrakt-Klasse
         private String geburtsname;
         private String familienname;
         private String vorname;
         private String zweitname;
         private Date geburtsDatum;
-        private Adresse adresse;
 
         public Builder geburtsname(String geburtsname) {
             this.geburtsname = geburtsname;
@@ -63,48 +58,42 @@ public class MenschRealDaten extends MenschAbstraktDaten {
             return this;
         }
 
-        public Builder adresse(Adresse adresse) {
-            this.adresse = adresse;
-            return this;
-        }
-
-        public MenschRealDaten build() {
-            return new MenschRealDaten(this);
+        public MenschDatenKonkret build() {
+            return new MenschDatenKonkret(this);
         }
 
     }
 
     // der Konstruktor für den Builder!
-    private MenschRealDaten(Builder build) {
+    private MenschDatenKonkret(Builder build) {
+//        System.out.println("Ist build == null? " + (build == null));
         this.setGeburtsname(build.geburtsname);
         this.setFamilienname(build.familienname);
         this.setVorname(build.vorname);
         this.setZweitname(build.zweitname);
         this.setGeburtsDatum(build.geburtsDatum);
-        this.setAdresse(build.adresse);
     }
 
     // alternativ kann man auch einen vollständigen Konstruktor verwenden
     // nur mit allen Pflichtfeldern
-    public MenschRealDaten(String geburtsname, String familienname, String vorname,
-            Date geburtsDatum, Adresse adresse) {
+    public MenschDatenKonkret(String geburtsname, String familienname, String vorname,
+            Date geburtsDatum) {
         this.setGeburtsname(geburtsname);
         this.setFamilienname(familienname);
         this.setVorname(vorname);
         this.setGeburtsDatum(geburtsDatum);
-        this.setAdresse(adresse);
     }
 
-    public MenschRealDaten(String geburtsname, String familienname, String vorname, String zweitname,
-            Date geburtsDatum, Adresse adresse) {
-        this(geburtsname, familienname, vorname, geburtsDatum, adresse);
+    public MenschDatenKonkret(String geburtsname, String familienname, String vorname, String zweitname,
+            Date geburtsDatum) {
+        this(geburtsname, familienname, vorname, geburtsDatum);
         this.setZweitname(zweitname);
     }
 
-    // Standardkonstruktor
-    public MenschRealDaten() {
-    }
-
+//    // Standardkonstruktor
+//    public MenschDatenKonkret() {
+//    }
+    @Override
     public String toString() {
         String returnString
                 = "Vorname: " + this.getVorname() + separationsZeichen;
@@ -114,5 +103,20 @@ public class MenschRealDaten extends MenschAbstraktDaten {
         returnString += "Familienname: " + this.getFamilienname() + separationsZeichen
                 + "Geburtsname: " + this.getGeburtsname();
         return returnString;
+    }
+
+    /**
+     *
+     * @return @throws CloneNotSupportedException
+     */
+    @Override
+    public Object clone() {
+        Object returnObject = null;
+        try {
+            returnObject = super.clone();
+        } catch (CloneNotSupportedException cnsex) {
+            System.out.println("Exception: " + cnsex);
+        }
+        return returnObject;
     }
 }

@@ -1,6 +1,6 @@
 package de.marcelhuber.referenzprojektjavase7.demos;
 
-import de.marcelhuber.referenzprojektjavase7.model.Adresse;
+import de.marcelhuber.referenzprojektjavase7.datensatzklasse.AdressDaten;
 import de.marcelhuber.systemtools.Pause;
 import de.marcelhuber.systemtools.PressEnter;
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class AdresseKonstruktorDemo {
 
-    Adresse adresse01;
-    Adresse adresse02;
+    AdressDaten adresse01;
+    AdressDaten adresse02;
 
     public static void main(String[] args) {
         new AdresseKonstruktorDemo().goMitTeleskopkonstruktor01();
@@ -27,7 +27,7 @@ public class AdresseKonstruktorDemo {
 
     private void goMitTeleskopkonstruktor01() {
         System.out.println("go1()-Methode".toUpperCase());
-        adresse01 = new Adresse("Hohensteinstraße", 6, "54294", "Trier");
+        adresse01 = new AdressDaten("Hohensteinstraße", 6, "54294", "Trier");
         System.out.println("Aktueller Stand adresse01\n" + adresse01);
         System.out.println("");
         System.out.println("Entferne Emailadresse \"huberm01\"");
@@ -76,7 +76,7 @@ public class AdresseKonstruktorDemo {
         telefonnummern.add("06501456");
         telefonnummern.add("06501444");
         telefonnummern.add("06501999");
-        adresse01 = new Adresse("Hohensteinstraße", 6, "54294", "Trier",
+        adresse01 = new AdressDaten("Hohensteinstraße", 6, "54294", "Trier",
                 telefonnummern);
         System.out.println("Aktueller Stand adresse01\n" + adresse01);
         System.out.println("");
@@ -137,7 +137,7 @@ public class AdresseKonstruktorDemo {
         emailadressen.add("huberm01");
         emailadressen.add("huberm02");
         emailadressen.add("huberm03");
-        adresse01 = new Adresse("Hohensteinstraße", 6, "54294", "Trier",
+        adresse01 = new AdressDaten("Hohensteinstraße", 6, "54294", "Trier",
                 telefonnummern, emailadressen);
         System.out.println("Aktueller Stand adresse01\n" + adresse01);
         System.out.println("");
@@ -155,7 +155,7 @@ public class AdresseKonstruktorDemo {
         emailadressen.add("huberm01");
         emailadressen.add("huberm02");
         emailadressen.add("huberm03");
-        adresse01 = new Adresse.Builder("Hohensteinstraße", 6, "54294", "Trier")
+        adresse01 = new AdressDaten.Builder("Hohensteinstraße", 6, "54294", "Trier")
                 .emailadressen(emailadressen).build();
         System.out.println("Aktueller Stand adresse01\n" + adresse01);
         System.out.println("");

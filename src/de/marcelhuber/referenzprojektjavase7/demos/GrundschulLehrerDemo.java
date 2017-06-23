@@ -1,9 +1,9 @@
 package de.marcelhuber.referenzprojektjavase7.demos;
 
-import de.marcelhuber.referenzprojektjavase7.model.Adresse;
+import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;
 import de.marcelhuber.referenzprojektjavase7.model.GrundschulLehrer;
-import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschRealDaten;
-import de.marcelhuber.systemtools.Marker;
+import de.marcelhuber.referenzprojektjavase7.model.MenschReal;
+import de.marcelhuber.systemtools.Pause;
 import java.util.Date;
 
 /**
@@ -13,91 +13,51 @@ import java.util.Date;
 public class GrundschulLehrerDemo {
 
     public static void main(String[] args) {
-        new GrundschulLehrerDemo().go();
+        new GrundschulLehrerDemo().goDemo();
     }
 
-    private void go() {
-        GrundschulLehrer marcel = new GrundschulLehrer();
-        marcel.getMenschDaten().setVorname("Marcel");
+    private void goDemo() {
+        MenschDatenKonkret marcelsDaten = new MenschDatenKonkret("Huber", "", "Marcel", new Date());
+        System.out.println(marcelsDaten);
+        MenschReal marcel = MenschReal.getInstance(marcelsDaten);
         System.out.println(marcel);
-        marcel.getMenschDaten().setFamilienname("Huber");
-        marcel.getMenschDaten().setGeburtsname("Huber");
-        marcel.addUnterrichtsFaecher(new String[]{"Mathematik", "Informatik", "Lifehacks"});
+        marcel.getMenschDaten().setZweitname("B.");
         System.out.println(marcel);
-        //
-        GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        System.out.println("Neuer Mensch!!".toUpperCase());
-        MenschRealDaten saschasDaten = new MenschRealDaten("Huber", "Huber", "Sascha",
-                new Date(), new Adresse("Strasse XY", 0, "54XXX", "TR"));
-        System.out.println("Mensch Sascha:           " + saschasDaten);
-        Marker.marker();
-        System.out.println("");
-        GrundschulLehrer sascha = new GrundschulLehrer(saschasDaten);
-        System.out.println("Grundschullehrer Sascha: " + sascha);
-        saschasDaten.setFamilienname("Huber der 2.");
-        System.out.println("Grundschullehrer Sascha: " + sascha);
-        //
-        GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten marcelsDaten = marcel.getMenschDaten();
-        marcelsDaten.setSeparationsZeichen("||| ---");
+        marcelsDaten.setFamilienname("Huber".toUpperCase());
         System.out.println(marcel);
-        marcel.setSeparationsZeichen("XXXX");
-        System.out.println(marcel);
-        //
-        System.out.println("");
-        MenschRealDaten pascalsDaten = new MenschRealDaten("Huber", "Huber", "Pascal", new Date(), null);
-        System.out.println(pascalsDaten);
-        // 
+        GrundschulLehrer marcelAlsGrundschullehrer = GrundschulLehrer.getInstance(marcel);
+        System.out.println(marcelAlsGrundschullehrer);
+        marcelAlsGrundschullehrer.setSeparationsZeichen(" --- ");
+        System.out.println(marcelAlsGrundschullehrer);
+        marcelAlsGrundschullehrer.addUnterrichtsFach("Mathematik");
+        System.out.println("Der GS (Grundschullehrer) Marcel mit seinem Unterrichtsfach: ");
+        System.out.println(marcelAlsGrundschullehrer);
+        MenschDatenKonkret saschasDaten = (MenschDatenKonkret) (marcelsDaten.clone());
+        saschasDaten.setVorname("Sascha");
+        MenschReal sascha = MenschReal.getInstance(saschasDaten);
+        System.out.println(sascha);
+        GrundschulLehrer saschaAlsGrundschullehrer = GrundschulLehrer.getInstance(sascha);
+        saschaAlsGrundschullehrer.addUnterrichtsFaecher(new String[]{"Sport", "Philosophie"});
+        System.out.println(saschaAlsGrundschullehrer);
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten mamasDaten = new MenschRealDaten("Huber", "Herrig", "G.", "S.", new Date(), null);
-        System.out.println(mamasDaten);
-        //
+        saschaAlsGrundschullehrer.removeUnterrichtsFaecher(new String[]{"Philosophie", "Sport"});
+        System.out.println(saschaAlsGrundschullehrer);
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten papasDaten = new MenschRealDaten();
-        papasDaten.setFamilienname("Huber");
-        papasDaten.setZweitname("Matthias");
-        System.out.println(papasDaten);
-        // 
-        GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
-        MenschRealDaten omasDaten = new MenschRealDaten.Builder()
-                .geburtsname("HabeIchGeradeVergessen").build();
+//        // die folgenden 3 Zeilen sind auskommentiert, wurden wegen der Exc. getestet
+//        MenschReal oma = null;
+//        Pause.breakInSeconds(3);
+//        GrundschulLehrer omaAlsGrundschullehrer = GrundschulLehrer.getInstance(oma);
+        MenschReal oma = MenschReal.getInstance(new MenschDatenKonkret.Builder().build());
+        GrundschulLehrer omaAlsGrundschullehrer = GrundschulLehrer.getInstance(oma);
+        omaAlsGrundschullehrer.addUnterrichtsFaecher(new String[]{"Häkeln", "Lifehacks"});
+        System.out.println(omaAlsGrundschullehrer);
+        MenschDatenKonkret omasDaten = omaAlsGrundschullehrer.getMenschDaten();
+        omasDaten.setVorname("Kath.");
+        omasDaten.setFamilienname("Huber");
+        omasDaten.setGeburtsname("HabeIchGeradeVergessen");
+        System.out.println(omaAlsGrundschullehrer);
         System.out.println(omasDaten);
-        GrundschulLehrer oma = new GrundschulLehrer();
-        oma.setMenschDaten(omasDaten);
-        System.out.println("Oma als Grundschullehrerin:\n" + oma);
-        oma.addUnterrichtsFaecher(new String[]{"Häkeln", "Lifehacks"});
-        oma.getMenschDaten().setVorname("Kath.");
-        System.out.println("Oma als Grundschullehrerin und ihre Fächer:\n" + oma);
-        System.out.println("Omas Daten jetzt als MenschDaten mit geändertem Separationszeichen:");
-        omasDaten.setSeparationsZeichen("..... ");
-        System.out.println(omasDaten);
-        MenschRealDaten opasDaten = new MenschRealDaten.Builder()
-                .zweitname("Frans")
-                .vorname("Nikolaus")
-                .build();
-        System.out.println("Opas Daten: ");
-        System.out.println(opasDaten);
-        GrundschulLehrer opa = new GrundschulLehrer(opasDaten);
-        opa.getMenschDaten().setZweitname("Franz");
-        opa.getMenschDaten().setFamilienname("Huber");
-        opa.addUnterrichtsFaecher(new String[]{"Mechanik", "Handwerk"});
-        opa.addUnterrichtsFach("Fernsehen");
-        opa.removeUnterrichtsFaecher(new String[]{"Fernsehen", "Handwerk"});
-        System.out.println("Opa als Grundschullehrer mit seinen Fächern: ");
-        System.out.println(opa);
-        opa.changeUnterrichtsFaecher("Mechanik", "Mechatronik");
-        System.out.println(opa);
-        opasDaten = new MenschRealDaten.Builder().build();
-        opa = new GrundschulLehrer(opasDaten);
-        opa.addUnterrichtsFach("Abstraktes Denken");
-        System.out.println(opa);
-        System.out.println("Opas Unterrichtsfächer: "
-                + opa.getUnterrichtsFaecher());
-        System.out.println("Jetzt leeren wir seine Liste von Unterrichtsfächern...");
-        opa.clearAllUnterrichtsFaecher();
-        System.out.println("Opas Unterrichtsfächer: "
-                + opa.getUnterrichtsFaecher());
-        System.out.println(opa);
-        System.out.println("Ende".toUpperCase());
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXX");
+        System.out.println(oma);
     }
 }

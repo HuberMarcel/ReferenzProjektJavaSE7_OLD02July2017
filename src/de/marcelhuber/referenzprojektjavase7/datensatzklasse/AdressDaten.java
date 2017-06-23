@@ -1,4 +1,4 @@
-package de.marcelhuber.referenzprojektjavase7.model;
+package de.marcelhuber.referenzprojektjavase7.datensatzklasse;
 
 //import com.sun.javafx.UnmodifiableArrayList;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Marcel Huber
  */
-public class Adresse {
+public class AdressDaten {
 
     private String strasse;                 // Pflichtattribut (Kürzel im Folgenden: PA)
     private long hausnummer = -1;           // PA
@@ -23,20 +23,20 @@ public class Adresse {
     private List<String> emailadressen;     // PA: mehrere Emailadresse möglich 
 
     // 1. Möglichkeit: Teleskopkonstruktor
-//    public Adresse(String strasse) {
+//    public AdressDaten(String strasse) {
 //        this.strasse = strasse;
 //    }
 //
-//    public Adresse(String strasse, long hausnummer) {
+//    public AdressDaten(String strasse, long hausnummer) {
 //        this(strasse);
 //        this.hausnummer = hausnummer;
 //    }
 //
-//    public Adresse(String strasse, long hausnummer, String postleitzahl) {
+//    public AdressDaten(String strasse, long hausnummer, String postleitzahl) {
 //        this(strasse, hausnummer);
 //        this.postleitzahl = postleitzahl;
 //    }
-    public Adresse(String strasse, long hausnummer, String postleitzahl,
+    public AdressDaten(String strasse, long hausnummer, String postleitzahl,
             String wohnort) {
 //        this(strasse, hausnummer,postleitzahl);
         this.strasse = strasse;
@@ -45,13 +45,13 @@ public class Adresse {
         this.wohnort = wohnort;
     }
 
-    public Adresse(String strasse, long hausnummer, String postleitzahl,
+    public AdressDaten(String strasse, long hausnummer, String postleitzahl,
             String wohnort, List<String> telefonnummern) {
         this(strasse, hausnummer, postleitzahl, wohnort);
         this.telefonnummern = telefonnummern;
     }
 
-    public Adresse(String strasse, long hausnummer, String postleitzahl,
+    public AdressDaten(String strasse, long hausnummer, String postleitzahl,
             String wohnort, List<String> telefonnummern, List<String> emailadressen) {
         this(strasse, hausnummer, postleitzahl, wohnort, telefonnummern);
         this.emailadressen = emailadressen;
@@ -59,7 +59,7 @@ public class Adresse {
     // Ende der 1. Möglichkeit (Teleskopkonstruktor)
 
     // 2. Möglichkeit: Mit Builder (static nested class)
-    private Adresse(Builder builder) {
+    private AdressDaten(Builder builder) {
         this.strasse = builder.strasse;
         this.hausnummer = builder.hausnummer;
         this.postleitzahl = builder.postleitzahl;
@@ -98,7 +98,7 @@ public class Adresse {
             return this;
         }
 
-        public Adresse build() {
+        public AdressDaten build() {
             if (this.strasse == null) {
                 throw new IllegalArgumentException("Stasse ist Pflichtpfeld");
             }
@@ -111,7 +111,7 @@ public class Adresse {
             if (this.wohnort == null) {
                 throw new IllegalArgumentException("Wohnort ist Pflichtpfeld");
             }
-            return new Adresse(this);
+            return new AdressDaten(this);
         }
 
     }

@@ -1,20 +1,18 @@
 package de.marcelhuber.referenzprojektjavase7.datensatzklasse;
 
-import de.marcelhuber.referenzprojektjavase7.model.Adresse;
 import java.util.Date;
 
 /**
  *
  * @author Marcel Huber
  */
-public abstract class MenschAbstraktDaten {
+public abstract class MenschDatenAbstrakt {
 
     private String geburtsname;         // Pflichtfeld
     private String familienname;        // Pflichtfeld
     private String vorname;             // Pflichtfeld
     private String zweitname;
     private Date geburtsDatum;          // Pflichtfeld
-    private Adresse adresse;            // Pflichtfeld
 
     public String getGeburtsname() {
         return geburtsname;
@@ -54,13 +52,5 @@ public abstract class MenschAbstraktDaten {
 
     public void setGeburtsDatum(Date geburtsDatum) {
         this.geburtsDatum = geburtsDatum;
-    }
-
-    public Adresse getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(Adresse adresse) {
-        this.adresse = adresse;
     }
 }

@@ -1,6 +1,6 @@
 package de.marcelhuber.referenzprojektjavase7.daointerface;
 
-import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschRealDaten;
+import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;
 import java.util.Collection;
 
 /**
@@ -9,13 +9,13 @@ import java.util.Collection;
  */
 public interface InterfaceMenschRealDatenDao {
 
-    Collection<MenschRealDaten> findAllMenschRealDaten();
+    Collection<MenschDatenKonkret> findAllMenschRealDaten();
 
-    MenschRealDaten findMenschRealDatenById(int uid);
+    MenschDatenKonkret findMenschRealDatenById(int uid);
 
-    void create(MenschRealDaten mrD);
+    void create(MenschDatenKonkret mrD);
 
-    void delete(MenschRealDaten mrD);
+    void delete(MenschDatenKonkret mrD);
 
-    void update(MenschRealDaten mrD);
+    void update(MenschDatenKonkret mrD);
 }
