@@ -1,4 +1,4 @@
-package de.marcelhuber.referenzprojektjavase7.controller;
+package de.marcelhuber.referenzprojektjavase7.daointerface;
 
 import de.marcelhuber.referenzprojektjavase7.model.MenschRealDaten;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import java.util.Collection;
  *
  * @author Marcel Huber
  */
-public interface MenschRealDatenDao {
+public interface InterfaceMenschRealDatenDao {
 
     Collection<MenschRealDaten> findAllMenschRealDaten();
 

@@ -1,4 +1,4 @@
-package de.marcelhuber.referenzprojektjavase7.controller;
+package de.marcelhuber.referenzprojektjavase7.daointerface;
 
 import de.marcelhuber.referenzprojektjavase7.model.GrundschulLehrer;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import java.util.Collection;
  *
  * @author Marcel Huber
  */
-public interface GrundschulLehrerDao {
+public interface InterfaceGrundschulLehrerDao {
 
     Collection<GrundschulLehrer> findAllGrundschulLehrer();
 
