@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -14,13 +12,15 @@ import java.util.logging.Logger;
  */
 public class MySQLConnectorTester {
 
-    private String dummytable;
+    static private String dummyTable;
 
-    {
-        dummytable = "DUMMYTABLE";
+    static {
+        dummyTable = "DUMMYTABLE";
     }
     Connection firstConnection;
     Connection secondConnection;
+    Statement stmt;
+    ResultSet resultSet;
 
     public static void main(String[] args) {
         MySQLConnectorTester dummy = new MySQLConnectorTester();
@@ -29,7 +29,9 @@ public class MySQLConnectorTester {
         dummy.add("Huber");
         dummy.add("Herrig");
         dummy.add("Roth");
+        dummy.showTable(dummyTable);
 //        dummy.deleteTable();
+        dummy.closeAll();
     }
 
     private void go() {
@@ -53,21 +55,11 @@ public class MySQLConnectorTester {
             System.out.println("Problem beim Schließen der " + counter + "en "
                     + "Connection (Verbindung)!");
         }
-        String tabelle = "mensch";
-        String sql = "SELECT * FROM " + tabelle;
-        String sqlAddMensch = "";
-        try {
-            ResultSet resultSet
-                    = MySQLConnector.INSTANCE.getStatement().executeQuery(sql);
-        } catch (SQLException sqlex) {
-            System.out.println(sqlex);
-            sqlex.printStackTrace();
-        }
     }
 
     private void createTable() {
         try {
-            MySQLConnector.INSTANCE.createTable(dummytable, "(\n"
+            MySQLConnector.INSTANCE.createTable(dummyTable, "(\n"
                     + "  `id` int unsigned NOT NULL AUTO_INCREMENT,\n"
                     + "  `geburtsname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\n"
                     + "  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n"
@@ -82,19 +74,67 @@ public class MySQLConnectorTester {
     }
 
     private void add(String geburtsname) {
-        String sql = "INSERT INTO `" + dummytable + "` (`geburtsname`) "
+        String sql = "INSERT INTO `" + dummyTable + "` (`geburtsname`) "
                 + "VALUES ('" + geburtsname + "')";
         try {
-            Statement stmt = firstConnection.createStatement();
+            stmt = firstConnection.createStatement();
             int number = stmt.executeUpdate(sql);
             System.out.println("\n" + number + " Datensätze hinzugefügt");
-        } catch (SQLException ex) {
-            System.out.println(ex);
+        } catch (SQLException sqlex) {
+            System.out.println(sqlex);
             System.exit(0);
         }
     }
 
     private void deleteTable() {
-        MySQLConnector.INSTANCE.deleteTable(dummytable);
+        MySQLConnector.INSTANCE.deleteTable(dummyTable);
+    }
+
+    private void showTable(String table) {
+        String sql = "SELECT * FROM " + table;
+        try {
+            ResultSet resultSet
+                    = stmt.executeQuery(sql);
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString(1) + " - " + resultSet.getString(2));
+            }
+        } catch (SQLException sqlex) {
+            System.out.println(sqlex);
+            sqlex.printStackTrace();
+        }
+
+    }
+
+    private void closeAll() {
+        try {
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        } catch (SQLException sqlex) {
+            System.out.println(sqlex);
+            sqlex.printStackTrace();
+        } finally {
+            if (firstConnection != null) {
+                try {
+                    firstConnection.close();
+                } catch (SQLException sqlex) {
+                    System.out.println(sqlex);
+                    sqlex.printStackTrace();
+                }
+            }
+        }
+
+        if (secondConnection != null) {
+            try {
+                secondConnection.close();
+            } catch (SQLException sqlex) {
+                System.out.println(sqlex);
+                sqlex.printStackTrace();
+            }
+        }
     }
 }
+
