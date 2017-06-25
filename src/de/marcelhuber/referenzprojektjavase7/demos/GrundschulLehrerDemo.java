@@ -81,8 +81,12 @@ public class GrundschulLehrerDemo {
         omasDaten.setFamilienname("Huber");
         omasDaten.setGeburtsname("HabeIchGeradeVergessen");
         System.out.println(omaAlsGrundschullehrer);
+        Calendar omasTagDerGeburt = Calendar.getInstance();
+        omasTagDerGeburt.set(1932, Calendar.JULY, 19);
+        omasDaten.setGeburtsDatum(omasTagDerGeburt);
         System.out.println(omasDaten);
-        System.out.println("XXXXXXXXXXXXXXXXXXXXXXX");
+        Marker.marker();
         System.out.println(oma);
+        System.out.println(omaAlsGrundschullehrer);
     }
 }

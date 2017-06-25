@@ -98,16 +98,17 @@ public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable
 //                + "Geburtsname: " + this.getGeburtsname() + separationsZeichen;
 //        if (this.getGeburtsDatum() != null) {
 //            this.setDate(this.getGeburtsDatum().getTime());
-//            returnString += "Tag der Geburt: " + this.getDf().format(this.getDate());
+//            returnString += "Tag der Geburt: "
+//                    + this.getDf().format(this.getDate()) + separationsZeichen;
 //        }
 //        return returnString;
 //    }
 
-/**
- *
- * @return @throws CloneNotSupportedException
- */
-@Override
+    /**
+     *
+     * @return @throws CloneNotSupportedException
+     */
+    @Override
     public Object clone() {
         Object returnObject = null;
         try {
@@ -117,7 +118,7 @@ public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable
                     this.getGeburtsDatum().get(Calendar.YEAR),
                     this.getGeburtsDatum().get(Calendar.MONTH),
                     this.getGeburtsDatum().get(Calendar.DAY_OF_MONTH)
-                    );
+            );
             this.setGeburtsDatum(geburtsDatumKopie);
         } catch (CloneNotSupportedException cnsex) {
             System.out.println("Exception: " + cnsex);

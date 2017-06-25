@@ -101,7 +101,7 @@ public abstract class MenschDatenAbstrakt {
                 + "Geburtsname: " + this.getGeburtsname() + separationsZeichen;
         if (this.geburtsDatum != null) {
             date = this.getGeburtsDatum().getTime();
-            returnString += "Tag der Geburt: " + df.format(date);
+            returnString += "Tag der Geburt: " + df.format(date) + separationsZeichen;
         }
         return returnString;
     }

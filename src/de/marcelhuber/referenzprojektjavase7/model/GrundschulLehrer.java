@@ -126,12 +126,9 @@ public class GrundschulLehrer extends MenschReal {
         System.out.println("Grundschullehrer, meine Daten: (<-- in der toString()-Methode der "
                 + "Grundschullehrer-Klasse!!)");
 //        PressEnter.toContinue();
-        returnString = super.toString()
-                + "\n"
-                + separationsZeichen
-                + "\n";
+        returnString = super.toString();
         if (unterrichtsFaecher != null && unterrichtsFaecher.size() > 0) {
-            returnString += "Unterrichtsfächer: " + unterrichtsFaecher;
+            returnString += "\nUnterrichtsfächer: " + unterrichtsFaecher;
         }
         returnString += "";
         return returnString;
@@ -156,9 +153,9 @@ public class GrundschulLehrer extends MenschReal {
         if (dummy == null) {
             Calendar dummyCalendar = Calendar.getInstance();
 //            dummyCalendar.set(1800,0,13);      // 13.01.1800
-            dummyCalendar.set(1800,Calendar.JANUARY,13);      // 13.01.1800
+            dummyCalendar.set(1800, Calendar.JANUARY, 13);      // 13.01.1800
             dummy = new GrundschulLehrer(MenschReal.getInstance(new MenschDatenKonkret(
-                    "dummyGeburtsname", "dummyFamilienname", "dummyVorname", 
+                    "dummyGeburtsname", "dummyFamilienname", "dummyVorname",
                     dummyCalendar)));
             dummy.getMenschDaten().setFamilienname("GS Hilfsobjekt Nr.: "
                     + (++counter));
