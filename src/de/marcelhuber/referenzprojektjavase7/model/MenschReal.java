@@ -3,7 +3,6 @@ package de.marcelhuber.referenzprojektjavase7.model;
 import de.marcelhuber.referenzprojektjavase7.exceptions.MenschRealCannotBeInitiatedException;
 import de.marcelhuber.referenzprojektjavase7.datensatzklasse.AdressDaten;
 import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;
-import de.marcelhuber.systemtools.PressEnter;
 
 /**
  *

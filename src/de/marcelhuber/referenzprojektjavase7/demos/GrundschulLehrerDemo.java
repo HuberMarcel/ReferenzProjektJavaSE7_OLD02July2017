@@ -3,8 +3,9 @@ package de.marcelhuber.referenzprojektjavase7.demos;
 import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;
 import de.marcelhuber.referenzprojektjavase7.model.GrundschulLehrer;
 import de.marcelhuber.referenzprojektjavase7.model.MenschReal;
-import de.marcelhuber.systemtools.Pause;
-import java.util.Date;
+import de.marcelhuber.systemtools.Marker;
+import de.marcelhuber.systemtools.PressEnter;
+import java.util.Calendar;
 
 /**
  *
@@ -17,7 +18,10 @@ public class GrundschulLehrerDemo {
     }
 
     private void goDemo() {
-        MenschDatenKonkret marcelsDaten = new MenschDatenKonkret("Huber", "", "Marcel", new Date());
+        Calendar marcelsTagDerGeburt = Calendar.getInstance();
+        marcelsTagDerGeburt.set(1980, Calendar.DECEMBER, 27);
+        MenschDatenKonkret marcelsDaten = new MenschDatenKonkret("Huber", "", "Marcel",
+                marcelsTagDerGeburt);
         System.out.println(marcelsDaten);
         MenschReal marcel = MenschReal.getInstance(marcelsDaten);
         System.out.println(marcel);
@@ -34,8 +38,30 @@ public class GrundschulLehrerDemo {
         System.out.println(marcelAlsGrundschullehrer);
         MenschDatenKonkret saschasDaten = (MenschDatenKonkret) (marcelsDaten.clone());
         saschasDaten.setVorname("Sascha");
+        saschasDaten.getGeburtsDatum().set(1978, Calendar.SEPTEMBER, 12);
         MenschReal sascha = MenschReal.getInstance(saschasDaten);
         System.out.println(sascha);
+//        //
+//        PressEnter.toContinue();
+//        Marker.marker();
+//        Marker.marker();
+//        System.out.println("Zum Vergleich nochmal:");
+//        System.out.println(marcelsDaten);
+//        System.out.println(marcel);
+//        System.out.println(marcelAlsGrundschullehrer);
+//        Marker.marker();
+//        System.out.println(saschasDaten);
+//        System.out.println(sascha);
+//        // Datumskorrektur
+//        sascha.getMenschDaten().getGeburtsDatum().add(Calendar.DAY_OF_MONTH, 1);
+//        // 
+//        Marker.marker();
+//        System.out.println(saschasDaten);
+//        System.out.println(sascha);
+//        Marker.marker();
+//        Marker.marker();
+//        PressEnter.toContinue();
+//        //
         GrundschulLehrer saschaAlsGrundschullehrer = GrundschulLehrer.getInstance(sascha);
         saschaAlsGrundschullehrer.addUnterrichtsFaecher(new String[]{"Sport", "Philosophie"});
         System.out.println(saschaAlsGrundschullehrer);

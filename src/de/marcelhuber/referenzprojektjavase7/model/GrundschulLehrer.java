@@ -4,8 +4,8 @@ import de.marcelhuber.referenzprojektjavase7.exceptions.GrundschulLehrerCannotBe
 import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;
 import de.marcelhuber.systemtools.Marker;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -154,8 +154,11 @@ public class GrundschulLehrer extends MenschReal {
 
     static public void nutzeMarkiereNeuenAbschnitt() {
         if (dummy == null) {
+            Calendar dummyCalendar = Calendar.getInstance();
+            dummyCalendar.set(1800,0,13); // 13.01.1800
             dummy = new GrundschulLehrer(MenschReal.getInstance(new MenschDatenKonkret(
-                    "dummyGeburtsname", "dummyFamilienname", "dummyVorname", new Date(0))));
+                    "dummyGeburtsname", "dummyFamilienname", "dummyVorname", 
+                    dummyCalendar)));
             dummy.getMenschDaten().setFamilienname("GS Hilfsobjekt Nr.: "
                     + (++counter));
         }

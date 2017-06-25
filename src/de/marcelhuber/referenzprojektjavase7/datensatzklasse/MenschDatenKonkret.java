@@ -1,5 +1,7 @@
 package de.marcelhuber.referenzprojektjavase7.datensatzklasse;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -7,21 +9,6 @@ import java.util.Date;
  * @author Marcel Huber
  */
 public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable {
-
-    // Initialsierungsblock
-    private String separationsZeichen;
-
-    {
-        separationsZeichen = "| ";
-    }
-
-    public String getSeparationsZeichen() {
-        return separationsZeichen;
-    }
-
-    public void setSeparationsZeichen(String separationsZeichen) {
-        this.separationsZeichen = separationsZeichen;
-    }
 
     // diese Klasse dient dazu, einen MenschBuilder zu implementieren
     static public class Builder {
@@ -31,7 +18,11 @@ public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable
         private String familienname;
         private String vorname;
         private String zweitname;
-        private Date geburtsDatum;
+        // wichtig: beim Geburtsdatum bei clone() beim Geburtsdatum ein neues Objekt rausgeben!!
+        //          sonst kann das kopierte Onjekt mit dem getter auf das
+        //          gleiche Objekt wie das ursprüngliche zugreifen, und jede Veränderung
+        //          wirkt sich auf beide aus - die Kopie ist dann nur teilweise eine Kopie
+        private Calendar geburtsDatum;
 
         public Builder geburtsname(String geburtsname) {
             this.geburtsname = geburtsname;
@@ -53,7 +44,7 @@ public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable
             return this;
         }
 
-        public Builder geburtsDatum(Date geburtsDatum) {
+        public Builder geburtsDatum(Calendar geburtsDatum) {
             this.geburtsDatum = geburtsDatum;
             return this;
         }
@@ -77,7 +68,7 @@ public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable
     // alternativ kann man auch einen vollständigen Konstruktor verwenden
     // nur mit allen Pflichtfeldern
     public MenschDatenKonkret(String geburtsname, String familienname, String vorname,
-            Date geburtsDatum) {
+            Calendar geburtsDatum) {
         this.setGeburtsname(geburtsname);
         this.setFamilienname(familienname);
         this.setVorname(vorname);
@@ -85,7 +76,7 @@ public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable
     }
 
     public MenschDatenKonkret(String geburtsname, String familienname, String vorname, String zweitname,
-            Date geburtsDatum) {
+            Calendar geburtsDatum) {
         this(geburtsname, familienname, vorname, geburtsDatum);
         this.setZweitname(zweitname);
     }
@@ -93,27 +84,41 @@ public class MenschDatenKonkret extends MenschDatenAbstrakt implements Cloneable
 //    // Standardkonstruktor
 //    public MenschDatenKonkret() {
 //    }
-    @Override
-    public String toString() {
-        String returnString
-                = "Vorname: " + this.getVorname() + separationsZeichen;
-        if (this.getZweitname() != null && this.getZweitname().length() > 0) {
-            returnString += "Zweitname: " + this.getZweitname() + separationsZeichen;
-        }
-        returnString += "Familienname: " + this.getFamilienname() + separationsZeichen
-                + "Geburtsname: " + this.getGeburtsname();
-        return returnString;
-    }
+    
+//    // diese toString() wurde nun in die abstrakte Klasse verlagert, daher hier ganz auskom    
+//    @Override
+//    public String toString() {
+//        String separationsZeichen = ", ";
+//        String returnString
+//                = "Vorname: " + this.getVorname() + separationsZeichen;
+//        if (this.getZweitname() != null && this.getZweitname().length() > 0) {
+//            returnString += "Zweitname: " + this.getZweitname() + separationsZeichen;
+//        }
+//        returnString += "Familienname: " + this.getFamilienname() + separationsZeichen
+//                + "Geburtsname: " + this.getGeburtsname() + separationsZeichen;
+//        if (this.getGeburtsDatum() != null) {
+//            this.setDate(this.getGeburtsDatum().getTime());
+//            returnString += "Tag der Geburt: " + this.getDf().format(this.getDate());
+//        }
+//        return returnString;
+//    }
 
-    /**
-     *
-     * @return @throws CloneNotSupportedException
-     */
-    @Override
+/**
+ *
+ * @return @throws CloneNotSupportedException
+ */
+@Override
     public Object clone() {
         Object returnObject = null;
         try {
             returnObject = super.clone();
+            Calendar geburtsDatumKopie = Calendar.getInstance();
+            geburtsDatumKopie.set(
+                    this.getGeburtsDatum().get(Calendar.YEAR),
+                    this.getGeburtsDatum().get(Calendar.MONTH),
+                    this.getGeburtsDatum().get(Calendar.DAY_OF_MONTH)
+                    );
+            this.setGeburtsDatum(geburtsDatumKopie);
         } catch (CloneNotSupportedException cnsex) {
             System.out.println("Exception: " + cnsex);
         }
