@@ -155,14 +155,17 @@ public class GrundschulLehrer extends MenschReal {
     static public void nutzeMarkiereNeuenAbschnitt() {
         if (dummy == null) {
             Calendar dummyCalendar = Calendar.getInstance();
-            dummyCalendar.set(1800,0,13); // 13.01.1800
+//            dummyCalendar.set(1800,0,13);      // 13.01.1800
+            dummyCalendar.set(1800,Calendar.JANUARY,13);      // 13.01.1800
             dummy = new GrundschulLehrer(MenschReal.getInstance(new MenschDatenKonkret(
                     "dummyGeburtsname", "dummyFamilienname", "dummyVorname", 
                     dummyCalendar)));
             dummy.getMenschDaten().setFamilienname("GS Hilfsobjekt Nr.: "
                     + (++counter));
+            dummy.addUnterrichtsFach("Being a dummy...");
         }
         System.out.println("Ich bin ein Dummy-Objekt: " + dummy.getMenschDaten().getFamilienname());
+        System.out.println(dummy);
         dummy.markiereNeuenAbschnitt();
     }
 }

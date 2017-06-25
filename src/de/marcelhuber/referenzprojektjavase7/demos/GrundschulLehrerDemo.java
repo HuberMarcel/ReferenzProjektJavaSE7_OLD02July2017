@@ -67,7 +67,6 @@ public class GrundschulLehrerDemo {
         System.out.println(saschaAlsGrundschullehrer);
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
         saschaAlsGrundschullehrer.removeUnterrichtsFaecher(new String[]{"Philosophie", "Sport"});
-        System.out.println(saschaAlsGrundschullehrer);
         GrundschulLehrer.nutzeMarkiereNeuenAbschnitt();
 //        // die folgenden 3 Zeilen sind auskommentiert, wurden wegen der Exc. getestet
 //        MenschReal oma = null;
