@@ -11,12 +11,13 @@ import java.util.*;
  *
  * @author Marcel Huber
  */
-// MySQLConnector als Singleton!
-public enum MySQLConnector {
+// MySQLDBConnection als Singleton!
+public enum MySQLDBConnection {
     INSTANCE;
 
     private Connection connection;
     // rein zu Testzwecken die Möglichkeit einer weiteren Verbindung
+    // soll später natürlich entfernt werden!!!!
     private Connection anotherConnection;
     private Statement statement;
     // 
@@ -26,7 +27,7 @@ public enum MySQLConnector {
     private String pass;
     private String db;
 
-    private MySQLConnector() {
+    private MySQLDBConnection() {
         initParameter();
     }
 
@@ -79,10 +80,13 @@ public enum MySQLConnector {
         return statement;
     }
 
-    public void close() {
+    public void closeConnection() {
         try {
             connection.close();
         } catch (SQLException ex) {
+            System.out.println("Schließen der Verbindung fehlgeschlagen!");
+            System.err.println(ex);
+            ex.printStackTrace();
         }
     }
 

@@ -1,6 +1,6 @@
 package de.marcelhuber.referenzprojektjavase7.db.test;
 
-import de.marcelhuber.referenzprojektjavase7.db.MySQLConnector;
+import de.marcelhuber.referenzprojektjavase7.db.MySQLDBConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ import java.sql.Statement;
  *
  * @author Marcel Huber
  */
-public class MySQLConnectorTester {
+public class MySQLDBConnectionTester {
 
     static private String dummyTable;
 
@@ -23,7 +23,7 @@ public class MySQLConnectorTester {
     ResultSet resultSet;
 
     public static void main(String[] args) {
-        MySQLConnectorTester dummy = new MySQLConnectorTester();
+        MySQLDBConnectionTester dummy = new MySQLDBConnectionTester();
         dummy.go();
         dummy.createTable();
         dummy.add("Huber");
@@ -35,15 +35,15 @@ public class MySQLConnectorTester {
     }
 
     private void go() {
-        // kurzer Test, ob MySQLConnector ein Singleton ist
-        MySQLConnector mysqlconnector = MySQLConnector.INSTANCE;
-        MySQLConnector my2ndsqlconnector = mysqlconnector.INSTANCE;
+        // kurzer Test, ob MySQLDBConnection ein Singleton ist
+        MySQLDBConnection mysqlconnector = MySQLDBConnection.INSTANCE;
+        MySQLDBConnection my2ndsqlconnector = mysqlconnector.INSTANCE;
         System.out.println("Haben wir etwa ein und das selber Connection-"
                 + "Objekt, nur zwei Referenzen dahin? "
                 + (mysqlconnector == my2ndsqlconnector));
         firstConnection = mysqlconnector.getConnection();
         secondConnection = mysqlconnector.getAnotherConnection();
-        System.out.println(firstConnection == MySQLConnector.INSTANCE.getConnection());
+        System.out.println(firstConnection == MySQLDBConnection.INSTANCE.getConnection());
         System.out.println(firstConnection == secondConnection);
         int counter = 0;
         try {
@@ -59,7 +59,7 @@ public class MySQLConnectorTester {
 
     private void createTable() {
         try {
-            MySQLConnector.INSTANCE.createTable(dummyTable, "(\n"
+            MySQLDBConnection.INSTANCE.createTable(dummyTable, "(\n"
                     + "  `id` int unsigned NOT NULL AUTO_INCREMENT,\n"
                     + "  `geburtsname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\n"
                     + "  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n"
@@ -87,7 +87,7 @@ public class MySQLConnectorTester {
     }
 
     private void deleteTable() {
-        MySQLConnector.INSTANCE.deleteTable(dummyTable);
+        MySQLDBConnection.INSTANCE.deleteTable(dummyTable);
     }
 
     private void showTable(String table) {

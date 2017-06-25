@@ -81,6 +81,15 @@ public abstract class MenschDatenAbstrakt {
         return geburtsDatum;
     }
 
+    public String getGeburtsDatumAsString() {
+        String geburtsDatumString = "";
+        if (this.geburtsDatum != null) {
+            date = this.getGeburtsDatum().getTime();
+            geburtsDatumString = df.format(date);
+        }
+        return geburtsDatumString;
+    }
+
     public void setGeburtsDatum(Calendar geburtsDatum) {
         this.geburtsDatum = geburtsDatum;
     }
@@ -111,8 +120,8 @@ public abstract class MenschDatenAbstrakt {
         returnString += "Familienname: " + this.getFamilienname() + separationsZeichen
                 + "Geburtsname: " + this.getGeburtsname() + separationsZeichen;
         if (this.geburtsDatum != null) {
-            date = this.getGeburtsDatum().getTime();
-            returnString += "Tag der Geburt: " + df.format(date) + separationsZeichen;
+            returnString += "Tag der Geburt: " 
+                    + getGeburtsDatumAsString() + separationsZeichen;
         }
         return returnString;
     }
