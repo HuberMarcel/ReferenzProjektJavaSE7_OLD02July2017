@@ -3,6 +3,7 @@ package de.marcelhuber.referenzprojektjavase7.datensatzklasse;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -18,11 +19,21 @@ public abstract class MenschDatenAbstrakt {
     private String separationsZeichen;  // nur hilfreich bei der toString()-Methode
     private Date date;
     private DateFormat df;
+    private Locale locale;
 
-    // Initialsierungsblock für das Separationszeichen... und DateFormat
+    // Initialsierungsblock für das Separationszeichen... und DateFormat inkl. locale
     {
         separationsZeichen = "; ";
-        df = DateFormat.getDateInstance(DateFormat.MEDIUM);
+//        locale = Locale.CANADA;
+//        locale = Locale.ENGLISH;
+//        locale = Locale.GERMANY;
+//        locale = Locale.UK;
+//        locale = new Locale("en", "GB");
+//        locale = Locale.US;
+//        locale = new Locale("de", "CH");
+//        locale = new Locale("de", "AT");
+        locale = new Locale("de", "DE");
+        df = DateFormat.getDateInstance(DateFormat.MEDIUM, locale);
     }
 
     public String getSeparationsZeichen() {
