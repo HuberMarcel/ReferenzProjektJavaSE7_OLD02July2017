@@ -14,7 +14,7 @@ public class MenschReal {
     // dieses soll also nicht "null" sein - daher der Konstruktor private und die 
     // entsprechende getInstance()-Methode, die das prüft und ggf. eine Exception wirft
     public MenschReal(MenschDatenKonkret mdk) {
-        // so wird hier impliziert immer der gleiche Fehler auftreten wie in der getInstance()-Methode
+        // so wird hier implizit immer der gleiche Fehler auftreten wie in der getInstance()-Methode
         // VORSICHT: Ohne if (mdk == null){...} else{...} landen wir in einer "Endlos-Konstruktion" 
         if (mdk == null) {
             this.menschDaten = MenschReal.getInstance(mdk).getMenschDaten();
