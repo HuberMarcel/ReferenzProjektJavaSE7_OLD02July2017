@@ -61,7 +61,7 @@ public class MySQLMenschRealDatenDaoDemo {
     }
 
     public static void main(String[] args) {
-        erzeugeTabelleMensch(false);
+//        erzeugeTabelleMensch(false);
 //        loescheTabelleMensch();
         // Hinweis: Wenn die Connection geclosed wurde, kann man 
         //          nicht mehr wie in der insertNewMenschRealDaten()
