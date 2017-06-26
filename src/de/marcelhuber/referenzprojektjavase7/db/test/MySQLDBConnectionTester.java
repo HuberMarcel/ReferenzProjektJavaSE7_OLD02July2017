@@ -18,7 +18,7 @@ public class MySQLDBConnectionTester {
         dummyTable = "DUMMYTABLE";
     }
     Connection firstConnection;
-    Connection secondConnection;
+//    Connection secondConnection;
     Statement stmt;
     ResultSet resultSet;
 
@@ -42,19 +42,19 @@ public class MySQLDBConnectionTester {
                 + "Objekt, nur zwei Referenzen dahin? "
                 + (mysqlconnector == my2ndsqlconnector));
         firstConnection = mysqlconnector.getConnection();
-        secondConnection = mysqlconnector.getAnotherConnection();
-        System.out.println(firstConnection == MySQLDBConnection.INSTANCE.getConnection());
-        System.out.println(firstConnection == secondConnection);
-        int counter = 0;
-        try {
-            ++counter;
-//            firstConnection.close();
-            ++counter;
-            secondConnection.close();
-        } catch (SQLException ex) {
-            System.out.println("Problem beim Schließen der " + counter + "en "
-                    + "Connection (Verbindung)!");
-        }
+//        secondConnection = mysqlconnector.getAnotherConnection();
+//        System.out.println(firstConnection == MySQLDBConnection.INSTANCE.getConnection());
+//        System.out.println(firstConnection == secondConnection);
+//        int counter = 0;
+//        try {
+//            ++counter;
+////            firstConnection.close();
+//            ++counter;
+//            secondConnection.close();
+//        } catch (SQLException ex) {
+//            System.out.println("Problem beim Schließen der " + counter + "en "
+//                    + "Connection (Verbindung)!");
+//        }
     }
 
     private void createTable() {
@@ -127,14 +127,14 @@ public class MySQLDBConnectionTester {
             }
         }
 
-        if (secondConnection != null) {
-            try {
-                secondConnection.close();
-            } catch (SQLException sqlex) {
-                System.out.println(sqlex);
-                sqlex.printStackTrace();
-            }
-        }
+//        if (secondConnection != null) {
+//            try {
+//                secondConnection.close();
+//            } catch (SQLException sqlex) {
+//                System.out.println(sqlex);
+//                sqlex.printStackTrace();
+//            }
+//        }
     }
 }
 

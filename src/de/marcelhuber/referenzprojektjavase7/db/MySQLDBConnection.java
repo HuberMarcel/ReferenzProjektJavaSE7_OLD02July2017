@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,12 +15,13 @@ import java.util.*;
  */
 // MySQLDBConnection als Singleton!
 public enum MySQLDBConnection {
+
     INSTANCE;
 
     private Connection connection;
     // rein zu Testzwecken die Möglichkeit einer weiteren Verbindung
     // soll später natürlich entfernt werden!!!!
-    private Connection anotherConnection;
+//    private Connection anotherConnection;
     private Statement statement;
     // 
     // verbindungs-parameter
@@ -59,20 +62,29 @@ public enum MySQLDBConnection {
         }
     }
 
-    public Connection getAnotherConnection() {
+//    public Connection getAnotherConnection() {
+//        try {
+//            String url = "jdbc:mysql://" + host + "/" + db;
+//            anotherConnection = DriverManager.getConnection(url, user, pass);
+//            System.out.println("Eine weitere Verbindung wurde erfolgreich "
+//                    + "hergestellt!");
+//        } catch (SQLException sqlex) {
+//            System.out.println(sqlex);
+//            sqlex.printStackTrace();
+//        }
+//        return anotherConnection;
+//    }
+
+    public Connection getConnection() {
+        // bessere Alternative zu getAnotherConnection
         try {
-            String url = "jdbc:mysql://" + host + "/" + db;
-            anotherConnection = DriverManager.getConnection(url, user, pass);
-            System.out.println("Eine weitere Verbindung wurde erfolgreich "
-                    + "hergestellt!");
+            if (connection.isClosed()) {
+                initParameter();
+            }
         } catch (SQLException sqlex) {
             System.out.println(sqlex);
             sqlex.printStackTrace();
         }
-        return anotherConnection;
-    }
-
-    public Connection getConnection() {
         return connection;
     }
 
