@@ -21,39 +21,46 @@ import java.util.logging.Logger;
  */
 public class MySQLMenschRealDatenDaoDemo {
 
-    static private void erzeugeTabelleMensch(boolean closeConnection) {
+    static private void erzeugeTabelleMensch(boolean wirklichErzeugen) {
         Connection con = MySQLDBConnection.INSTANCE.getConnection();
         File file = new File("SQLBefehleFuerCreateTable.txt");
         String sql = "";
         String zeile = "";
-        try {
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            while ((zeile = br.readLine()) != null) {
-                sql += "\n" + zeile;
+        if (wirklichErzeugen) {
+            try {
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((zeile = br.readLine()) != null) {
+                    sql += "\n" + zeile;
+                }
+            } catch (IOException ex) {
+                System.err.println(ex);
+                ex.printStackTrace();
             }
-        } catch (IOException ex) {
-            System.err.println(ex);
-            ex.printStackTrace();
         }
-        System.out.println(sql);
+        
+        boolean checkSQLString = false;
+        if (checkSQLString) {
+            System.out.println(sql);
+        }
 //        Connection connection = MySQLDBConnection.INSTANCE.getConnection();
         Statement statement = MySQLDBConnection.INSTANCE.getStatement();
-        try {
-            statement.execute(sql);
-        } catch (SQLException ex) {
-            System.err.println(ex);
-            ex.printStackTrace();
-        }
-        if (closeConnection) {
-            MySQLDBConnection.INSTANCE.closeConnection();
+        if (wirklichErzeugen) {
+            try {
+                statement.execute(sql);
+            } catch (SQLException ex) {
+                System.err.println(ex);
+                ex.printStackTrace();
+            }
         }
     }
 
-    static private void loescheTabelleMensch() {
+    static private void loescheTabelleMensch(boolean wirklichLoeschen) {
         Statement statement = MySQLDBConnection.INSTANCE.getStatement();
         try {
-            statement.execute("DROP TABLE `Mensch`");
+            if (wirklichLoeschen) {
+                statement.execute("DROP TABLE `Mensch`");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(MySQLMenschRealDatenDaoDemo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -61,8 +68,8 @@ public class MySQLMenschRealDatenDaoDemo {
     }
 
     public static void main(String[] args) {
-//        erzeugeTabelleMensch(false);
-//        loescheTabelleMensch();
+        erzeugeTabelleMensch(false);
+        loescheTabelleMensch(false);
         // Hinweis: Wenn die Connection geclosed wurde, kann man 
         //          nicht mehr wie in der insertNewMenschRealDaten()
         //          Daten in die SQL-DB hinzufügen - MySQLDBConnection ist 
@@ -82,12 +89,12 @@ public class MySQLMenschRealDatenDaoDemo {
         marcelsTagDerGeburt.set(1980, Calendar.DECEMBER, 27);
         MenschDatenKonkret marcelsDaten
                 = new MenschDatenKonkret.Builder()
-                        .geburtsname("Huber")
-                        .familienname("Huber")
-                        .vorname("Marcel")
-                        .zweitname("B.")
-                        .geburtsDatum(marcelsTagDerGeburt)
-                        .build();
+                .geburtsname("Huber")
+                .familienname("Huber")
+                .vorname("Marcel")
+                .zweitname("B.")
+                .geburtsDatum(marcelsTagDerGeburt)
+                .build();
         System.out.println(marcelsDaten);
         System.out.println(marcelsDaten.getGeburtsDatumAsString());
         PressEnter.toContinue();
@@ -104,10 +111,10 @@ public class MySQLMenschRealDatenDaoDemo {
         pascalsTagDerGeburt.set(1992, Calendar.SEPTEMBER, 15);
         MenschDatenKonkret pascalsDaten
                 = new MenschDatenKonkret.Builder()
-                        .familienname("Huber")
-                        .vorname("Pascal")
-                        .geburtsDatum(pascalsTagDerGeburt)
-                        .build();
+                .familienname("Huber")
+                .vorname("Pascal")
+                .geburtsDatum(pascalsTagDerGeburt)
+                .build();
         mySQLDummyInsertDao.create(pascalsDaten);
         MenschDatenKonkret mamasDaten
                 = (MenschDatenKonkret) marcelsDaten.clone();
