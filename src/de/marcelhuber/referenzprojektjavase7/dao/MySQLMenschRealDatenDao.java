@@ -1,4 +1,4 @@
-package de.marcelhuber.referenzprojektjavase7dao;
+package de.marcelhuber.referenzprojektjavase7.dao;
 
 import de.marcelhuber.referenzprojektjavase7.daointerface.InterfaceMenschRealDatenDao;
 import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;

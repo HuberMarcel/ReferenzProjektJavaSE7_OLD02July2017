@@ -2,7 +2,7 @@ package de.marcelhuber.referenzprojektjavase7.demos;
 
 import de.marcelhuber.referenzprojektjavase7.datensatzklasse.MenschDatenKonkret;
 import de.marcelhuber.referenzprojektjavase7.db.MySQLDBConnection;
-import de.marcelhuber.referenzprojektjavase7dao.MySQLMenschRealDatenDao;
+import de.marcelhuber.referenzprojektjavase7.dao.MySQLMenschRealDatenDao;
 import de.marcelhuber.systemtools.PressEnter;
 import java.io.BufferedReader;
 import java.io.File;
