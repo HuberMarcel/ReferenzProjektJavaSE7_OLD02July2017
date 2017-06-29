@@ -95,6 +95,9 @@
       <SubComponents>
         <Container class="javax.swing.JTabbedPane" name="jTabbedPanelGrundschulVerwaltung">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Vani" size="14" style="0"/>
+            </Property>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
           <AccessibilityProperties>
@@ -103,7 +106,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanelGrundschulLehrer">
+            <Container class="javax.swing.JPanel" name="jPanel1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Grundschul-Lehrer">
@@ -115,106 +118,101 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
-                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jPanelGrundschullehrer" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="135" max="32767" attributes="0"/>
-                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPanelGrundschullehrer" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="100" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanel3">
+                <Container class="javax.swing.JPanel" name="jPanelGrundschullehrer">
 
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jCheckBox1" min="-2" pref="164" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabelGeburtsdatum3" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jLabelFamilienname3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabelVorname3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabelZweitname3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabelGeburtsname3" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jLabelGeburtsdatum1" max="32767" attributes="0"/>
-                                          <Component id="jLabelGeburtsname1" alignment="0" pref="180" max="32767" attributes="0"/>
-                                          <Component id="jLabelFamilienname1" alignment="0" pref="180" max="32767" attributes="0"/>
-                                          <Component id="jLabelVorname1" alignment="0" pref="180" max="32767" attributes="0"/>
-                                          <Component id="jLabelZweitname1" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextGeburtsname1" alignment="0" pref="622" max="32767" attributes="0"/>
-                                          <Component id="jTextFamilienname1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextVorname1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextZweitname1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jFormattedGeburtsdatum1" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jCheckBox2" min="-2" pref="172" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jFormattedGeburtsdatum3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextZweitname3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextVorname3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFamilienname3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextGeburtsname3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" alignment="1" pref="600" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="223" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace pref="117" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelGeburtsname1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextGeburtsname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelGeburtsname3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextGeburtsname3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelFamilienname1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFamilienname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelFamilienname3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFamilienname3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelVorname1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextVorname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelVorname3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextVorname3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelZweitname1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextZweitname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelZweitname3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextZweitname3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelGeburtsdatum1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFormattedGeburtsdatum1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelGeburtsdatum3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFormattedGeburtsdatum3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="177" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="jTextGeburtsname1">
+                    <Component class="javax.swing.JTextField" name="jTextGeburtsname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextGeburtsname1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextGeburtsname3ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelGeburtsname1">
+                    <Component class="javax.swing.JLabel" name="jLabelGeburtsname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
@@ -223,7 +221,7 @@
                         <Property name="text" type="java.lang.String" value="Geburtsname"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelFamilienname1">
+                    <Component class="javax.swing.JLabel" name="jLabelFamilienname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
@@ -232,14 +230,14 @@
                         <Property name="text" type="java.lang.String" value="Familienname"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextFamilienname1">
+                    <Component class="javax.swing.JTextField" name="jTextFamilienname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelVorname1">
+                    <Component class="javax.swing.JLabel" name="jLabelVorname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
@@ -248,17 +246,17 @@
                         <Property name="text" type="java.lang.String" value="Vorname"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextVorname1">
+                    <Component class="javax.swing.JTextField" name="jTextVorname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextVorname1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextVorname3ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelZweitname1">
+                    <Component class="javax.swing.JLabel" name="jLabelZweitname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
@@ -267,14 +265,14 @@
                         <Property name="text" type="java.lang.String" value="Zweitname"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextZweitname1">
+                    <Component class="javax.swing.JTextField" name="jTextZweitname3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelGeburtsdatum1">
+                    <Component class="javax.swing.JLabel" name="jLabelGeburtsdatum3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
@@ -283,7 +281,7 @@
                         <Property name="text" type="java.lang.String" value="Geburtsdatum"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="jFormattedGeburtsdatum1">
+                    <Component class="javax.swing.JFormattedTextField" name="jFormattedGeburtsdatum3">
                       <Properties>
                         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                           <Format subtype="2" type="1"/>
@@ -293,14 +291,14 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JList" name="jList1">
+                        <Component class="javax.swing.JList" name="jList2">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Vani" size="16" style="0"/>
@@ -316,7 +314,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Vani" size="16" style="0"/>
@@ -328,7 +326,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel1">
+            <Container class="javax.swing.JPanel" name="jPanel2">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Mensch">
@@ -340,201 +338,167 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="861" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jPanelGrundschulMensch" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jPanelGrundschullehrer1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="665" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jPanelGrundschulMensch" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPanelGrundschullehrer1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="100" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanelGrundschulMensch">
+                <Container class="javax.swing.JPanel" name="jPanelGrundschullehrer1">
 
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabelGeburtsdatum4" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabelFamilienname4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabelVorname4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabelZweitname4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabelGeburtsname4" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jFormattedGeburtsdatum4" alignment="0" pref="600" max="32767" attributes="0"/>
+                                  <Component id="jTextZweitname4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextVorname4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFamilienname4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextGeburtsname4" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="223" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="135" max="32767" attributes="0"/>
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace pref="117" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelGeburtsname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextGeburtsname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelFamilienname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFamilienname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelVorname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextVorname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelZweitname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextZweitname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelGeburtsdatum4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFormattedGeburtsdatum4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel4">
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jLabelGeburtsdatum" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jLabelGeburtsname" alignment="0" pref="180" max="32767" attributes="0"/>
-                                      <Component id="jLabelFamilienname" alignment="0" pref="180" max="32767" attributes="0"/>
-                                      <Component id="jLabelVorname" alignment="0" pref="180" max="32767" attributes="0"/>
-                                      <Component id="jLabelZweitname" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextGeburtsname" alignment="0" pref="622" max="32767" attributes="0"/>
-                                      <Component id="jTextFamilienname" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextVorname" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextZweitname" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jFormattedGeburtsdatum" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelGeburtsname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextGeburtsname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelFamilienname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFamilienname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelVorname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextVorname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelZweitname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextZweitname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelGeburtsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jFormattedGeburtsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="298" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
-                      <SubComponents>
-                        <Component class="javax.swing.JTextField" name="jTextGeburtsname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextGeburtsnameActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelGeburtsname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="Geburtsname"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelFamilienname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="Familienname"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="jTextFamilienname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelVorname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="Vorname"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="jTextVorname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextVornameActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelZweitname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="Zweitname"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="jTextZweitname">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelGeburtsdatum">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="Geburtsdatum"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="jFormattedGeburtsdatum">
-                          <Properties>
-                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                              <Format subtype="2" type="1"/>
-                            </Property>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Vani" size="16" style="0"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
+                    <Component class="javax.swing.JTextField" name="jTextGeburtsname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextGeburtsname4ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelGeburtsname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="Geburtsname"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelFamilienname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="Familienname"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextFamilienname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelVorname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="Vorname"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextVorname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextVorname4ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelZweitname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="Zweitname"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextZweitname4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelGeburtsdatum4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="Geburtsdatum"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="jFormattedGeburtsdatum4">
+                      <Properties>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                          <Format subtype="2" type="1"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Vani" size="16" style="0"/>
+                        </Property>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
