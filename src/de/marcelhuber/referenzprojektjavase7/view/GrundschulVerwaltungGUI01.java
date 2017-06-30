@@ -2,9 +2,9 @@ package de.marcelhuber.referenzprojektjavase7.view;
 
 /**
  *
- * @author viona05
+ * @author Marcel Huber
  */
-public class GrundschulVerwaltungGUI01 extends javax.swing.JFrame {
+public class GrundschulVerwaltungGUI01 extends javax.swing.JFrame  {
 
     /**
      * Creates new form GrundschulVerwaltungGUI01
