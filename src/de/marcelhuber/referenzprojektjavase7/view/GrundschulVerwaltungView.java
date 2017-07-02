@@ -8,7 +8,7 @@ import java.util.*;
  * @author Marcel Huber
  */
 public interface GrundschulVerwaltungView {
-    void setController(GrundschulverwaltungController controller);
+    void setController(GrundschulVerwaltungController controller);
     void showView();
     void reset();     
     // geburtsname
